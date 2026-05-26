@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Logistics Optimizer Pro</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="main-container">
+
+  <aside class="sidebar">
+      <div class="brand">
+        <h1>🚚 Smart Logistics</h1>
+        <p>DAA Route Optimization System</p>
+      </div>
+
+      <div class="card">
+          <h3>📍 Depot Location</h3>
+          <input type="number" id="depotLat" placeholder="Latitude" value="28.4595">
+          <input type="number" id="depotLng" placeholder="Longitude" value="77.0266">
+          <button id="locateBtn" class="secondary-btn">Use My Location</button>
+      </div>
+
+      <div class="card">
+          <h3>📦 Add Delivery Order</h3>
+          <input type="text" id="customerName" placeholder="Customer Name">
+          <input type="number" id="packageWeight" placeholder="Weight (kg)">
+          <input type="time" id="deadline" value="18:00">
+
+          <select id="priority">
+              <option value="1">Low Priority</option>
+              <option value="2">Medium Priority</option>
+              <option value="3">VIP Priority</option>
+          </select>
+
+          <input type="number" id="lat" placeholder="Latitude">
+          <input type="number" id="lng" placeholder="Longitude">
+
+          <div class="mini-actions">
+            <button id="demoBtn" class="secondary-btn">Add Demo Data</button>
+            <button id="addOrderBtn">Add Order</button>
+          </div>
+      </div>
+
+      <div class="card">
+          <h3>🚛 Vehicle Settings</h3>
+          <input type="number" id="capacity" value="100" placeholder="Max Capacity">
+          <input type="number" id="fuelLimit" value="80" placeholder="Fuel Range KM">
+      </div>
+
+      <button id="optimizeBtn" class="optimize-btn">🚀 Optimize Route</button>
+      <button id="clearBtn" class="clear-btn">🗑 Clear All</button>
+  </aside>
+
+  <main class="content">
+
+      <section class="hero-card">
+        <div>
+          <h2>Delivery Optimizer Dashboard</h2>
+          <p>Priority + Distance + Capacity + Deadline based route planning</p>
+        </div>
+        <div class="badge">DAA PBL</div>
+      </section>
+
+      <section class="stats">
+          <div class="stat-box">
+              <span>Total Orders</span>
+              <h2 id="totalOrders">0</h2>
+          </div>
+
+          <div class="stat-box">
+              <span>Total Distance</span>
+              <h2 id="totalDistance">0 KM</h2>
+          </div>
+
+          <div class="stat-box">
+              <span>Load Efficiency</span>
+              <h2 id="efficiency">0%</h2>
+          </div>
+
+          <div class="stat-box">
+              <span>Route Status</span>
+              <h2 id="routeStatus">Waiting</h2>
+          </div>
+      </section>
+
+      <section class="map-wrapper">
+        <div id="map"></div>
+      </section>
+
+      <section class="bottom-section">
+          <div class="orders-panel">
+              <div class="panel-title">
+                <h3>Pending Orders</h3>
+                <small>Before optimization</small>
+              </div>
+              <div id="ordersList"></div>
+          </div>
+
+          <div class="orders-panel">
+              <div class="panel-title">
+                <h3>Optimized Route</h3>
+                <small>VIP priority is locked first</small>
+              </div>
+              <div id="optimizedRoute"></div>
+          </div>
+      </section>
+
+      <section class="algorithm-panel">
+        <h3>Algorithm Trace</h3>
+        <div id="algorithmTrace">
+          Add orders and run optimization to see DAA module output.
+        </div>
+      </section>
+
+  </main>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="graphEngine.js"></script>
+<script src="geneticAlgorithm.js"></script>
+<script src="dynamicOptimizer.js"></script>
+<script src="constraintValidator.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
